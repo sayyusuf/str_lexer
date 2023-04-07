@@ -64,7 +64,7 @@ parser(const char *text, void **data_struct, const rule_t *rules[])
 			if (res)
 			{
 				f = 0;
-				ret = rules[n]->fp(&text, &i, data_struct, &(const rule_info_t){res, (const char **)rules[n]->keys});
+				ret = rules[n]->fp(&text, &i, data_struct, &(const rule_info_t){(char *)res, (char **)rules[n]->keys});
 				if (ret)
 					return (ret);
 				break;

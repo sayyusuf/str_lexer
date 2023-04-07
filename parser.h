@@ -3,8 +3,8 @@
 
 typedef struct
 {
-	const char *key;
-	const char **keys;
+	char *key;
+	char **keys;
 } rule_info_t;
 
 typedef struct
