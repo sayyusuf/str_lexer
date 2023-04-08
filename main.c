@@ -4,6 +4,36 @@
 #include "parser.h"
 #include <string.h>
 
+
+int	dummy_empty(const char **text, unsigned int *index, void **data_struct, const rule_info_t *info)
+{
+	(void)data_struct;
+    char s[255];
+
+    strncpy(s, *text, *index);
+    s[*index] = 0;
+    if (*index)
+        printf("1<%s>\n", s);
+    (*text) += *index;
+    *index = 0;
+    return 0;
+}
+
+int	folder_opt(const char **text, unsigned int *index, void **data_struct, const rule_info_t *info)
+{
+    (void)data_struct;
+    char s[255];
+
+    strncpy(s, *text, *index);
+    s[*index] = 0;
+    if (*index)
+        printf("1<%s>\n", s);
+    printf("1<%s>\n", info->key);
+    (*text) += *index + strlen(info->key);
+    *index = 0;
+    return 0;
+}
+
 int	dummy0(const char **text, unsigned int *index, void **data_struct, const rule_info_t *info)
 {
 	(void)data_struct;
@@ -66,7 +96,7 @@ int	double_quote_rule(const char **text, unsigned int *index, void **data_struct
 int main()
 {
 
-const char *str = "On    \"the other hand,,.  \"  \"we denounce with righteous indignation and dislike men who are so\
+const char *str = "On <  <<   *******\"the other hand,,.  \"  we denounce with righteous indignation and dislike men who are so\
  beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee \
  the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness\
   of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to\
@@ -78,6 +108,8 @@ const char *str = "On    \"the other hand,,.  \"  \"we denounce with righteous i
 
 
     const rule_t *rules[] = {
+        &(rule_t){.keys = (char *[]){ NULL}, .fp = dummy_empty},
+        &(rule_t){.keys = (char *[]){ "<<", ">>", "<", ">", "(", ")", "||", "|", "&&", "&", "=", NULL}, .fp = folder_opt},
         &(rule_t){.keys = (char *[]){" ", "\n", NULL}, .fp = dummy0},
         &(rule_t){.keys = (char *[]){",",".", NULL}, .fp = dummy1},
         &(rule_t){.keys = (char *[]){"\"", NULL}, .fp = double_quote_rule},
