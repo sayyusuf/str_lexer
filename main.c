@@ -71,22 +71,15 @@ int	dummy1(const char **text, unsigned int *index, void **data_struct, const rul
 int	double_quote_rule(const char **text, unsigned int *index, void **data_struct, const rule_info_t *info)
 {
 	(void)data_struct;
-    char s[255];
     unsigned int i;
 
     i = *index + strlen(info->key);
-
     while ((*text)[i] && !is_similar((const char **)info->keys, &(*text)[i]))
         i += strlen(info->key);
     if (!(*text)[i])
         return -1;
     i += strlen(info->key);
-    strncpy(s, *text, i);
-    s[i] = 0;
-    if (i)
-        printf("2<%s>\n", s);
-    (*text) += i+ strlen(info->key);
-    *index = 0;
+    *index = i+ strlen(info->key);
     return 0;
 }
 
@@ -96,7 +89,7 @@ int	double_quote_rule(const char **text, unsigned int *index, void **data_struct
 int main()
 {
 
-const char *str = "On <  <<   *******\"the other hand,,.  \"  we denounce with righteous indignation and dislike men who are so\
+const char *str = "On <  <<   *******\"the other hand,,.  \"ooo  we denounce with righteous indignation and dislike men who are so\
  beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee \
  the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness\
   of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to\
