@@ -15,7 +15,7 @@ typedef struct
 
 
 int
-parser(const char *text, void **data_struct, const rule_t *rules[]);
+parser(const char *text, void *data_struct, const rule_t *rules[]);
 const char *
 is_similar(const char **keys, const char *text);
 
