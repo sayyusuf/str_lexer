@@ -10,7 +10,7 @@ typedef struct
 typedef struct
 {
 	char	**keys;
-	int	(*fp)(const char **text, unsigned int *index, void **data_struct, const rule_info_t *info);
+	int	(*fp)(const char **text, unsigned int *index, void *data_struct, const rule_info_t *info);
 } rule_t;
 
 
