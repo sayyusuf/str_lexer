@@ -5,7 +5,7 @@
 #include <string.h>
 
 
-int	dummy_empty(const char **text, unsigned int *index, void **data_struct, const rule_info_t *info)
+int	dummy_empty(const char **text, unsigned int *index, void *data_struct, const rule_info_t *info)
 {
 	(void)data_struct;
     char s[255];
@@ -19,7 +19,7 @@ int	dummy_empty(const char **text, unsigned int *index, void **data_struct, cons
     return 0;
 }
 
-int	folder_opt(const char **text, unsigned int *index, void **data_struct, const rule_info_t *info)
+int	folder_opt(const char **text, unsigned int *index, void *data_struct, const rule_info_t *info)
 {
     (void)data_struct;
     char s[255];
@@ -34,7 +34,7 @@ int	folder_opt(const char **text, unsigned int *index, void **data_struct, const
     return 0;
 }
 
-int	dummy0(const char **text, unsigned int *index, void **data_struct, const rule_info_t *info)
+int	dummy0(const char **text, unsigned int *index, void *data_struct, const rule_info_t *info)
 {
 	(void)data_struct;
     char s[255];
@@ -54,7 +54,7 @@ int	dummy0(const char **text, unsigned int *index, void **data_struct, const rul
     return 0;
 }
 
-int	dummy1(const char **text, unsigned int *index, void **data_struct, const rule_info_t *info)
+int	dummy1(const char **text, unsigned int *index, void *data_struct, const rule_info_t *info)
 {
 	(void)data_struct;
     char s[255];
@@ -68,7 +68,7 @@ int	dummy1(const char **text, unsigned int *index, void **data_struct, const rul
     return 0;
 }
 
-int	double_quote_rule(const char **text, unsigned int *index, void **data_struct, const rule_info_t *info)
+int	double_quote_rule(const char **text, unsigned int *index, void *data_struct, const rule_info_t *info)
 {
 	(void)data_struct;
     unsigned int i;
@@ -86,6 +86,11 @@ int	double_quote_rule(const char **text, unsigned int *index, void **data_struct
 
 
 
+int	array(const char **text, unsigned int *index, void *data_struct, const rule_info_t *info)
+{
+    
+
+}
 
 
 
