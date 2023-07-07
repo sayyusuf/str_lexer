@@ -86,8 +86,15 @@ int	double_quote_rule(const char **text, unsigned int *index, void **data_struct
 
 
 
+
+
+
+
 int main()
 {
+
+
+const char *s = "[ { \"hello\":  \"hi\" } ]";
 
 const char *str = "On <  <<   *******\"the other hand,,.  \"ooo  we denounce with righteous indignation and dislike men who are so\
  beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee \
@@ -99,6 +106,11 @@ const char *str = "On <  <<   *******\"the other hand,,.  \"ooo  we denounce wit
     The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater\
      pleasures, or else he endures pains to avoid worse pains. hi";
 
+
+
+    const rule_t *jrules[] = {
+        &(rule_t){.keys = (char *[]){NULL}, .fp = NULL},
+    };
 
     const rule_t *rules[] = {
         &(rule_t){.keys = (char *[]){ NULL}, .fp = dummy_empty},
