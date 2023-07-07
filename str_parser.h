@@ -1,5 +1,5 @@
-#ifndef PARSER_H
-#define PARSER_H
+#ifndef STR_PARSER_H
+#define STR_PARSER_H
 
 typedef struct
 {
