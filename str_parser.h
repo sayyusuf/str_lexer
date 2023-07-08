@@ -1,6 +1,13 @@
 #ifndef STR_PARSER_H
 #define STR_PARSER_H
 
+#define  PARSER_SUCCESS		0
+#define  PARSER_CONTINUE	1
+#define  PARSER_BREAK		2
+
+
+#include <stddef.h>
+
 typedef struct
 {
 	char *key;
@@ -15,7 +22,7 @@ typedef struct
 
 
 int
-str_parser(const char *text, void *data_struct, const rule_t *rules[]);
+str_parser(const char *text, void *data_struct, const rule_t *rules[], size_t *index);
 const char *
 is_similar(const char **keys, const char *text);
 

@@ -126,8 +126,9 @@ const char *str = "On <  <<   *******\"the other hand,,.  \"ooo  we denounce wit
         NULL
     };
 
-
-    str_parser(str, NULL, rules);
+    size_t index;
+    int ret = str_parser(str, NULL, rules, &index);
+    printf("ret = %d  len = %d index = %d c = %d\n", ret, strlen(str), index, str[index]);
     return (0);
 }
 
