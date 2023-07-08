@@ -50,20 +50,20 @@ is_similar(const char **keys, const char *text)
 int
 str_parser(const char *text, void *data_struct, const rule_t *rules[])
 {
-	unsigned int	i, n, f, ret;
+	unsigned int	i, n;
+	int				ret;
 	const char		*res;
 
 	i = 0;
 	while (text[i])
 	{
-		f = 1;
 		n = 0;
-		while (rules[n] && f)
+		ret = 1;
+		while (rules[n])
 		{
 			res = similar((const char **)rules[n]->keys, &text[i]);
 			if (res)
 			{
-				f = 0;
 				ret = rules[n]->fp(&text, &i, data_struct, &(const rule_info_t){(char *)res, (char **)rules[n]->keys});
 				if (ret < 0)
 					return (ret);
@@ -72,7 +72,7 @@ str_parser(const char *text, void *data_struct, const rule_t *rules[])
 			}
 			++n;
 		}
-		if (f)
+		if (ret)
 			++i;
 	}
 	if (text[0])
