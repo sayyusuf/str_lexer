@@ -127,7 +127,7 @@ const char *str = "On <  <<   *******\"the other hand,,.  \"ooo  we denounce wit
     };
 
 
-    parser(str, NULL, rules);
+    str_parser(str, NULL, rules);
     return (0);
 }
 
