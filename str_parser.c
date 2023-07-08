@@ -65,9 +65,10 @@ str_parser(const char *text, void *data_struct, const rule_t *rules[])
 			{
 				f = 0;
 				ret = rules[n]->fp(&text, &i, data_struct, &(const rule_info_t){(char *)res, (char **)rules[n]->keys});
-				if (ret)
+				if (ret < 0)
 					return (ret);
-				break;
+				if (!ret)
+					break;
 			}
 			++n;
 		}
