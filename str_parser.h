@@ -1,0 +1,22 @@
+#ifndef STR_PARSER_H
+#define STR_PARSER_H
+
+typedef struct
+{
+	char *key;
+	char **keys;
+} rule_info_t;
+
+typedef struct
+{
+	char	**keys;
+	int	(*fp)(const char **text, unsigned int *index, void *data_struct, const rule_info_t *info);
+} rule_t;
+
+
+int
+str_parser(const char *text, void *data_struct, const rule_t *rules[]);
+const char *
+is_similar(const char **keys, const char *text);
+
+#endif
