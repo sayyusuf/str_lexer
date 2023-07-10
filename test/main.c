@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stddef.h>
-#include "../str_parser.h"
+#include "../str_lexer.h"
 #include <string.h>
 
 
