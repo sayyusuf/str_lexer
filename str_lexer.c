@@ -69,14 +69,14 @@ str_lexer(const char *text, void *data_struct, const rule_t *rules[], size_t *in
 				ret = rules[n]->fp(&text, &i, data_struct, &(const rule_info_t){(char *)res, (char **)rules[n]->keys});
 				switch (ret)
 				{
-					case PARSER_SUCCESS:
+					case LEXER_SUCCESS:
 						f = 0;
 						break;
-					case PARSER_CONTINUE:
+					case LEXER_CONTINUE:
 						break;
-					case PARSER_BREAK:
+					case LEXER_BREAK:
 						*index = &text[i] - save;
-						return (PARSER_BREAK);
+						return (LEXER_BREAK);
 					default:
 						*index = &text[i] - save;
 						return (ret);
