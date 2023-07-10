@@ -48,7 +48,7 @@ is_similar(const char **keys, const char *text)
 
 
 int
-str_parser(const char *text, void *data_struct, const rule_t *rules[], size_t *index)
+str_lexer(const char *text, void *data_struct, const rule_t *rules[], size_t *index)
 {
 	unsigned int	i, n, f;
 	int				ret;

@@ -1,6 +1,6 @@
-NAME = str_parser.a
+NAME = str_lexer.a
 
-_SRC = str_parser.c
+_SRC = str_lexer.c
 
 _OBJ = $(_SRC:.c=.o)
 
