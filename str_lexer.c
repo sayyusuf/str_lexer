@@ -1,4 +1,4 @@
-#include "str_parser.h"
+#include "str_lexer.h"
 #include <stddef.h>
 
 static inline int
@@ -48,7 +48,7 @@ is_similar(const char **keys, const char *text)
 
 
 int
-str_parser(const char *text, void *data_struct, const rule_t *rules[], size_t *index)
+str_lexer(const char *text, void *data_struct, const rule_t *rules[], size_t *index)
 {
 	unsigned int	i, n, f;
 	int				ret;
@@ -69,14 +69,14 @@ str_parser(const char *text, void *data_struct, const rule_t *rules[], size_t *i
 				ret = rules[n]->fp(&text, &i, data_struct, &(const rule_info_t){(char *)res, (char **)rules[n]->keys});
 				switch (ret)
 				{
-					case PARSER_SUCCESS:
+					case LEXER_SUCCESS:
 						f = 0;
 						break;
-					case PARSER_CONTINUE:
+					case LEXER_CONTINUE:
 						break;
-					case PARSER_BREAK:
+					case LEXER_BREAK:
 						*index = &text[i] - save;
-						return (PARSER_BREAK);
+						return (LEXER_BREAK);
 					default:
 						*index = &text[i] - save;
 						return (ret);

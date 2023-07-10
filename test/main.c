@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stddef.h>
-#include "../str_parser.h"
+#include "../str_lexer.h"
 #include <string.h>
 
 
@@ -127,7 +127,7 @@ const char *str = "On <  <<   *******\"the other hand,,.  \"ooo  we denounce wit
     };
 
     size_t index;
-    int ret = str_parser(str, NULL, rules, &index);
+    int ret = str_lexer(str, NULL, rules, &index);
     printf("ret = %d  len = %d index = %d c = %d\n", ret, strlen(str), index, str[index]);
     return (0);
 }

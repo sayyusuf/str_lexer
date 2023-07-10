@@ -1,9 +1,11 @@
-#ifndef STR_PARSER_H
-#define STR_PARSER_H
+#ifndef STR_LEXER_H
+#define STR_LEXER_H
 
-#define  PARSER_SUCCESS		0
-#define  PARSER_CONTINUE	1
-#define  PARSER_BREAK		2
+#define LEXER_ERROR			1
+
+#define LEXER_SUCCESS		0
+#define LEXER_CONTINUE		1
+#define LEXER_BREAK			2
 
 
 #include <stddef.h>
@@ -22,7 +24,7 @@ typedef struct
 
 
 int
-str_parser(const char *text, void *data_struct, const rule_t *rules[], size_t *index);
+str_lexer(const char *text, void *data_struct, const rule_t *rules[], size_t *index);
 const char *
 is_similar(const char **keys, const char *text);
 
