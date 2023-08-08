@@ -5,7 +5,7 @@ _SRC = str_lexer.c
 _OBJ = $(_SRC:.c=.o)
 
 CC = gcc
-FLAGS = -Wall -Wextra -Werror 
+CFLAGS = -Wall -Wextra -Werror 
 
 .PHONY: all clean fclean re bonus
 all: $(NAME)
