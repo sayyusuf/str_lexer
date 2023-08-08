@@ -1,4 +1,4 @@
-NAME = str_lexer.a
+NAME = libstr_lexer.a
 
 _SRC = str_lexer.c
 
